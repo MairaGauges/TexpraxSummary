@@ -1,0 +1,38 @@
+# Configuration file for Synapse.
+#
+# This is a YAML file: see [1] for a quick introduction. Note in particular
+# that *indentation is important*: all the elements of a list or dictionary
+# should have the same indentation.
+#
+# [1] https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html
+#
+# For more information on how to configure Synapse, including a complete accounting of
+# each option, go to docs/usage/configuration/config_documentation.md or
+# https://matrix-org.github.io/synapse/latest/usage/configuration/config_documentation.html
+server_name: "ServerGauges"
+pid_file: /Users/maira/Desktop/Arbeit/TexPrax/homeserver.pid
+listeners:
+  - port: 8008
+    tls: false
+    type: http
+    x_forwarded: true
+    bind_addresses: ['::1', '127.0.0.1']
+    resources:
+      - names: [client, federation]
+        compress: false
+database:
+  name: sqlite3
+  args:
+    database: /Users/maira/Desktop/Arbeit/TexPrax/homeserver.db
+log_config: "/Users/maira/Desktop/Arbeit/TexPrax/ServerGauges.log.config"
+media_store_path: /Users/maira/Desktop/Arbeit/TexPrax/media_store
+registration_shared_secret: "p&l5Goe~S#WLpA1isdmf.FoWgmd75P-~jlf704Ws6f408mjDo^"
+report_stats: false
+macaroon_secret_key: "VH.Iqz-3Ze3*~8YqhP2R;9f-uw=ZIiG9*R~Fbz93ePqQpiZznp"
+form_secret: "gB#CBm^tEt-uNMgWtdk13lcH6R=,ZwxngTtd@D,xT^ZsLl9ny~"
+signing_key_path: "/Users/maira/Desktop/Arbeit/TexPrax/ServerGauges.signing.key"
+trusted_key_servers:
+  - server_name: "matrix.org"
+
+
+# vim:ft=yaml
